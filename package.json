@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mohamedsamara/google-books-search.git"
+    "url": "git+https://github.com/esmailmb/google-search-book-master.git"
   },
   "keywords": [
     "node",
@@ -22,12 +22,12 @@
     "mongoose",
     "react"
   ],
-  "author": "Mohamed Samara (https://github.com/mohamedsamara)",
+  "author": "Mohamed Samara (https://github.com/esmailmb)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mohamedsamara/google-books-search/issues"
+    "url": "https://github.com/esmailmb/google-search-book-master/issues"
   },
-  "homepage": "https://github.com/mohamedsamara/google-books-search#readme",
+  "homepage": "https://github.com/esmailmb/google-search-book-master#readme",
   "devDependencies": {
     "concurrently": "^4.1.0",
     "nodemon": "^1.18.7"
