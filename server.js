@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === "production") {
 app.use("/api", apiRoutes);
 
 // Connect to MongoDB
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/googlebooks";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://db-google:Google@cluster0.ouyu3.mongodb.net/db?retryWrites=true&w=majority";
 
 mongoose.connect(
   MONGODB_URI, 
