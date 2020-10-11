@@ -1,52 +1,43 @@
-## Overview
+# Library Builder
 
-This application allows user to search google books using Google Books API. User has the option to view the book on Google or save the book to view it sometime later.
+Library Builder is a MERN-stack app that allows users to search for books of interest! Books can be saved to and deleted from the 'favorites' list.
 
+This project was created as an assignment from Penn LPS Coding Bootcamp.
 
-### Motivation
+## Assignment Parameters
 
-The goal of this application is to use the create-react-app project as a starter to build frontend react application along with node, express and mongoose on the backend.   
+* This application requires at minimum 2 pages, check out the following mockup images for each page:
 
+  * [Search](client/public/img/readme/Search.png) - User can search for books via the Google Books API and render them here. User has the option to "View" a book, bringing them to the book on Google Books, or "Save" a book, saving it to the Mongo database.
 
-### Features 
+  * [Saved](client/public/img/readme/Saved.png) - Renders all books saved to the Mongo database. User has an option to "View" the book, bringing them to the book on Google Books, or "Delete" a book, removing it from the Mongo database.
 
-* Built Reusable statelss react components using ES6 and JSX 
-* Communicate with Backend API's using axios and populate components states with data  
+## Getting started
 
-### Demo
-	
-Clicky Game is deployed on Heroku. Please check it out [here](https://serene-spire-87200.herokuapp.com/).
+Type in the name of a book to find that book in the search results! You can click the green 'Save' button to add books to your 'Saved' list.
 
+![Searching for and saving books](client/public/img/readme/search.gif)
 
-### Install
+Click 'Saved' on the navbar to view books that you've saved. Saved books can be deleted by clicking the red 'Delete' button.
 
-Some basic Git commands are:
+![Deleting saved books](client/public/img/readme/saved.gif)
 
-```
-$ git clone https://github.com/esmailmb/google-search-book-master.git
-$ cd project
-$ npm install
-```
+Click the blue 'View' button on either the 'Search' or 'Saved' page to view more information about the book on the Google Books website.
 
+![Viewing books](client/public/img/readme/view.gif)
 
-### Simple build for production
+## About
 
-```
-$ npm run build
-```
+This app uses React to handle the view and functionality, Express and Node for server-side API routing, and MongoDB for storing the user's saved books.
 
-### Run the application for development
+Technologies used: MongoDB, Express, React, Node, Mongoose, Bootstrap, Google Books API
 
-```
-$ npm run start:dev
-```
+## Links
 
-### Run the application for production
+- Deployed: https://google-books-sdreyes.herokuapp.com/
+- Repository: https://github.com/sdreyes/google-books
+- Google Books API: https://developers.google.com/books/
 
-```
-$ npm run start:prod
-```
+## Author
 
-
-
-
+- Shelby Reyes: https://sdreyes.github.io/

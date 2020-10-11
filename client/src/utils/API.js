@@ -1,16 +1,22 @@
-import axios from 'axios';
+import axios from "axios";
+import moment from "moment";
 
 export default {
-  getBooks: () => {
-    return axios.get('/api/books');
+  getBooks: function (query) {
+    return axios.get("/api/books", { params: { q: query } });
   },
-  searchBooks: search => {
-    return axios.post('/api/books/search', { search: search });
+  getSavedBooks: function () {
+    return axios.get("/api/savedBooks");
   },
-  saveBook: bookData => {
-    return axios.post('/api/books', bookData);
+  saveBook: function (bookData) {
+    return axios.post("/api/savedBooks", bookData);
   },
-  deleteBook: id => {
-    return axios.delete(`/api/books/${id}`);
+  deleteSavedBook: function (googleId) {
+    return axios.delete(`/api/savedBooks/${googleId}`);
+  },
+  getDate: function (id) {
+    let timestamp = id.toString().substring(0, 8)
+    let date = new Date(parseInt(timestamp, 16) * 1000)
+    return (moment(date).format("MMM D, YYYY @ h:mma"));
   }
 };

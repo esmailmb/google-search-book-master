@@ -1,86 +1,75 @@
-import React, { Component } from 'react';
-
-import API from '../utils/API';
-
-import SavedBookList from '../components/SavedBookList';
-import MessageBox from '../components/MessageBox';
+import React, { Component } from "react";
+import { Row, Container } from "../components/Grid";
+import { BookList, BookListItem } from "../components/BookList";
+import API from "../utils/API";
 
 class Saved extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      savedBooks: [],
-      notif: {
-        isActive: false,
-        message: ''
-      }
-    };
+
+  state = {
+    savedBooks: [],
+    screenWidth: window.innerWidth
   }
 
   componentDidMount() {
-    API.getBooks()
-      .then(response => {
-        this.setState({
-          savedBooks: response.data
-        });
-      })
-      .catch(err => {
-        this.setState({
-          notif: {
-            isActive: true,
-            type: 'danger',
-            message: 'Something Went Wrong! Please try again!'
-          }
-        });
-      });
+    this.loadSavedBooks();
+    window.addEventListener('resize', this.updateDimensions);
   }
 
-  deleteBook(Id, Index) {
-    this.setState(state => {
-      const savedBooks = state.savedBooks.filter((item, j) => Index !== j);
-
-      return {
-        savedBooks
-      };
-    });
-
-    API.deleteBook(Id)
-      .then(response => {
-        this.setState({
-          notif: {
-            isActive: true,
-            type: 'success',
-            message: 'Successfully Deleted!'
-          }
-        });
-      })
-      .catch(err => {
-        this.setState({
-          notif: {
-            isActive: true,
-            type: 'danger',
-            message: 'Something Went Wrong! Please try again!'
-          }
-        });
-      });
+  updateDimensions = () => {
+    this.setState({screenWidth: window.innerWidth}, () => console.log(this.state.screenWidth))
   }
+
+  loadSavedBooks = () => {
+    API.getSavedBooks()
+      .then(res =>
+        this.setState({ savedBooks: res.data }))
+  }
+
+  deleteSavedBook = (event, googleId) => {
+    event.preventDefault();
+    API.deleteSavedBook(googleId)
+      .then(res => this.loadSavedBooks())
+      .catch(err => console.log(err));
+  };
 
   render() {
-    const { savedBooks, notif } = this.state;
-
     return (
-      <div className='saved'>
-        <MessageBox notif={notif} />
-        {savedBooks.length > 0 ? (
-          <SavedBookList
-            books={savedBooks}
-            deleteBook={(id, index) => this.deleteBook(id, index)}
-          />
-        ) : (
-          <p className='no-data'>No Saved Books Yet!</p>
-        )}
-      </div>
-    );
+      <Container>
+        <Row>
+          <div className="col rounded text-center bg-success mt-4 mb-4 p-4">
+            <h1>Saved Books</h1>
+          </div>
+        </Row>
+        <Row>
+          <div className="col border border-rounded p-3 mb-4">
+            <h4>Saved Books</h4>
+            {!this.state.savedBooks.length ? (
+              <h6 className="text-center">No books to display currently</h6>
+            ) : (
+                <BookList>
+                  {this.state.savedBooks.map(book => {
+                    return (
+                      <BookListItem
+                        key={book.googleId}
+                        googleId={book.googleId}
+                        title={book.title}
+                        authors={book.authors}
+                        description={book.description}
+                        thumbnail={book.thumbnail}
+                        href={book.href}
+                        date={API.getDate(book._id)}
+                        saved={true}
+                        clickEvent={this.deleteSavedBook}
+                        screenWidth={this.state.screenWidth}
+                      />
+                    );
+                  })}
+                </BookList>
+              )}
+          </div>
+        </Row>
+      </Container>
+    )
   }
 }
 

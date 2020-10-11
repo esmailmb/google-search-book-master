@@ -342,7 +342,7 @@ npm install --save react-router
 Alternatively you may use `yarn`:
 
 ```sh
-yarn add react-router
+npm install react-router
 ```
 
 This works for any library, not just `react-router`.
@@ -997,7 +997,7 @@ This shouldn’t affect you when developing on `localhost`, but if you develop r
 To work around it, you can specify your public development host in a file called `.env.development` in the root of your project:
 
 ```
-HOST=myPublicDevHost.com
+HOST=mypublicdevhost.com
 ```
 
 If you restart the development server now and load the app from the specified host, it should work.

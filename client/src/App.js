@@ -1,31 +1,24 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Container } from 'reactstrap';
+import React from "react";
+import 'bootswatch/dist/lumen/bootstrap.min.css'; 
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Nav from "./components/Nav";
+import Search from "./pages/Search";
+import Saved from "./pages/Saved";
+import NoMatch from "./pages/NoMatch";
 
-import Books from './pages/Books';
-import Saved from './pages/Saved';
-import NavMenu from './components/NavMenu';
-
-import './App.css';
-
-const App = () => {
+function App() {
   return (
     <Router>
-      <div className='application'>
-        <NavMenu />
-        <main className='main'>
-          <Container>
-            <div className='wrapper'>
-              <Switch>
-                <Route exact path='/' component={Books} />
-                <Route path='/saved' component={Saved} />
-              </Switch>
-            </div>
-          </Container>
-        </main>
+      <div>
+        <Nav />
+        <Switch>
+          <Route exact path="/" component={Search} />
+          <Route exact path="/saved" component={Saved} />
+          <Route component={NoMatch} />
+        </Switch>
       </div>
     </Router>
   );
-};
+}
 
 export default App;
