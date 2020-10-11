@@ -34,10 +34,10 @@ Technologies used: MongoDB, Express, React, Node, Mongoose, Bootstrap, Google Bo
 
 ## Links
 
-- Deployed: https://google-books-sdreyes.herokuapp.com/
+- Deployed: https://google-search-book-esmail.herokuapp.com/
 - Repository: https://github.com/esmailmb/google-search-book-master
 - Google Books API: https://developers.google.com/books/
 
 ## Author
 
-- Shelby Reyes: https://sdreyes.github.io/
+- Shelby Reyes: https://github.com/esmailmb
