@@ -23,7 +23,7 @@ Clicky Game is deployed on Heroku. Please check it out [here](https://serene-spi
 Some basic Git commands are:
 
 ```
-$ git clone https://github.com/mohamedsamara/google-books-search.git
+$ git clone https://github.com/esmailmb/google-search-book-master.git
 $ cd project
 $ npm install
 ```
