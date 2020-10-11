@@ -81,8 +81,8 @@ class Search extends Component {
       <Container>
         <Row>
           <div className="col rounded text-center bg-info mt-4 p-4">
-            <h1>Library Builder</h1>
-            <h4>Search for and save books of interest!</h4>
+            <h1>Google Book Search</h1>
+            <h4>Search for Books and Save !</h4>
           </div>
         </Row>
         <Row>
@@ -112,7 +112,7 @@ class Search extends Component {
               <h4>Results for {this.state.searched}</h4>
             )}
             {!this.state.books.length ? (
-              <h6 className="text-center">No books to display currently</h6>
+              <h6 className="text-center">No books to display !</h6>
             ) : (
                 <BookList>
                   {this.state.books.map(book => {
