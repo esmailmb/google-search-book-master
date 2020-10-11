@@ -100,7 +100,6 @@ class Search extends Component {
                   onChange={this.handleInputChange} />
               </div>
               <Button onClick={this.handleFormSubmit}>Search</Button>
-              <img className="ml-3" src="https://books.google.com/googlebooks/images/poweredby.png" alt="Powered by Google" />
             </form>
           </div>
         </Row>
