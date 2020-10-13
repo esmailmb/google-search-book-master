@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === "production") {
 app.use("/api", apiRoutes);
 
 // Connect to MongoDB
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://db-google:Google@cluster0.ouyu3.mongodb.net/db?retryWrites=true&w=majority";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://db-google:Google@cluster0.ckoiu.mongodb.net/db-google-s?retryWrites=true&w=majority";
 
 mongoose.connect(
   MONGODB_URI, 
